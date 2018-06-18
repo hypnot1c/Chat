@@ -1,0 +1,27 @@
+﻿@section styles {
+    <link type="text/css" rel="stylesheet" href="/styles/style.css" asp-append-version="true" />
+    <% for (key in htmlWebpackPlugin.files.css) { %><%
+    if (htmlWebpackPlugin.files.cssIntegrity) { %>
+    <link type="text/css" href="<%= htmlWebpackPlugin.files.css[key] %>"
+          rel="stylesheet"
+          integrity="<%= htmlWebpackPlugin.files.cssIntegrity[key] %>"
+          crossorigin="<%= webpackConfig.output.crossOriginLoading %>" /><%
+    } else { %>
+    <link type="text/css" href="<%= htmlWebpackPlugin.files.css[key] %>" rel="stylesheet" /><%
+    } %><%
+    } %>
+}
+<div aurelia-app="main"></div>
+@section scripts {
+<script src="/dist/<%= htmlWebpackPlugin.options.vendorFileName %>"></script>
+<% for (key in htmlWebpackPlugin.files.chunks) { %><%
+      if (htmlWebpackPlugin.files.jsIntegrity) { %>
+<script src="<%= htmlWebpackPlugin.files.chunks[key].entry %>"
+        type="text/javascript"
+        integrity="<%= htmlWebpackPlugin.files.jsIntegrity[htmlWebpackPlugin.files.js.indexOf(htmlWebpackPlugin.files.chunks[key].entry)] %>"
+        crossorigin="<%= webpackConfig.output.crossOriginLoading %>"></script><%
+      } else { %>
+<script src="<%= htmlWebpackPlugin.files.chunks[key].entry %>" type="text/javascript"></script><%
+      } %><%
+    } %>
+}

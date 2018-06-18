@@ -2,17 +2,51 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
+    <TypeScriptToolsVersion>2.8</TypeScriptToolsVersion>
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-    <Folder Include="Views\Shared\" />
+    <None Remove="src\app.ts" />
+    <None Remove="src\config\app-config.ts" />
+    <None Remove="src\config\app-route-config.ts" />
+    <None Remove="src\config\environment.ts" />
+    <None Remove="src\config\http-config.ts" />
+    <None Remove="src\config\open-id-config.ts" />
+    <None Remove="src\main.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="src\pages\" />
+    <Folder Include="Views\Home\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="src\app.ts" />
+    <TypeScriptCompile Include="src\config\app-config.ts" />
+    <TypeScriptCompile Include="src\config\app-route-config.ts" />
+    <TypeScriptCompile Include="src\config\environment.ts" />
+    <TypeScriptCompile Include="src\config\http-config.ts" />
+    <TypeScriptCompile Include="src\config\open-id-config.ts" />
+    <TypeScriptCompile Include="src\main.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="package-lock.json">
+      <DependentUpon>package.json</DependentUpon>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="webpack.vendor.config.js">
+      <DependentUpon>webpack.config.js</DependentUpon>
+    </None>
   </ItemGroup>
 
 </Project>

@@ -1,0 +1,28 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": "src/",
+    "baseUrl": "./src",
+    "outDir": "wwwroot/dist",
+    "sourceMap": true,
+    "target": "es5",
+    "module": "es2015",
+    "moduleResolution": "node",
+    "declaration": false,
+    "noImplicitAny": false,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "lib": [ "es2017", "es2015", "es2015.promise", "dom" ]
+  },
+  "filesGlob": [
+    "./src/**/*.ts",
+    "./test/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ],
+  "atom": {
+    "rewriteTsconfig": false
+  }
+}
