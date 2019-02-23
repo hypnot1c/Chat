@@ -20,8 +20,6 @@ const appConfig = {
         } as IHttpConnectionOptions
     },
 
-    WinTeamSearchApiHost: "https://search.winteam.io/test",
-
     AuthService: {
         storagePrefix: "dev-",
         logLevel: Log.DEBUG,
